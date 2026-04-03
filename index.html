@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FRAME — Visual Production Studio</title>
+<title>n_g_allery — Visual Production Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
   :root {
     --white: #ffffff;
     --off-white: #f7f5f1;
@@ -24,9 +24,9 @@
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
   }
-
+ 
   html { scroll-behavior: smooth; }
-
+ 
   body {
     background: var(--white);
     color: var(--ink);
@@ -37,7 +37,7 @@
     cursor: none;
     overflow-x: hidden;
   }
-
+ 
   /* CUSTOM CURSOR */
   .cursor {
     width: 8px; height: 8px;
@@ -56,7 +56,7 @@
     transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s;
   }
   .cursor-ring.hover { width: 56px; height: 56px; border-color: var(--gold-mid); }
-
+ 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -71,7 +71,7 @@
     padding: 1.2rem 4rem;
     border-bottom-color: var(--cream-dark);
   }
-
+ 
   .logo {
     font-family: var(--serif);
     font-size: 1.5rem;
@@ -84,7 +84,7 @@
   .logo span { color: var(--gold-light); }
   nav.scrolled .logo { color: var(--ink); }
   nav.scrolled .logo span { color: var(--gold-mid); }
-
+ 
   .nav-links { display: flex; gap: 3rem; list-style: none; }
   .nav-links a {
     font-size: 0.75rem; font-weight: 400;
@@ -95,7 +95,7 @@
   .nav-links a:hover { color: var(--gold-light); }
   nav.scrolled .nav-links a { color: var(--ink-light); }
   nav.scrolled .nav-links a:hover { color: var(--gold); }
-
+ 
   .nav-cta {
     font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--gold-light); text-decoration: none;
@@ -105,7 +105,7 @@
   .nav-cta:hover { background: var(--gold-mid); color: #fff; border-color: var(--gold-mid); }
   nav.scrolled .nav-cta { color: var(--gold); border-color: rgba(154,120,50,0.4); }
   nav.scrolled .nav-cta:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
-
+ 
   /* HERO */
   .hero {
     height: 100vh; position: relative;
@@ -114,26 +114,24 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(201,169,110,0.07) 0%, transparent 60%),
-      linear-gradient(180deg, rgba(10,9,8,0) 40%, rgba(10,9,8,0.92) 100%);
+    background: #000;
     z-index: 1;
   }
   .hero-video-bg {
     position: absolute; inset: 0;
     background: url('https://images.unsplash.com/photo-1536240478700-b869ad10e2f3?w=1800&q=80') center/cover no-repeat;
-    filter: brightness(0.32) contrast(1.1) saturate(0.9);
+    filter: brightness(0);
     z-index: 0;
   }
   .hero-content { position: relative; z-index: 2; max-width: 900px; }
-
+ 
   .hero-tag {
     display: inline-flex; align-items: center; gap: 0.75rem;
     font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--gold-light); margin-bottom: 2rem;
   }
   .hero-tag::before { content: ''; width: 40px; height: 1px; background: var(--gold-light); }
-
+ 
   .hero-title {
     font-family: var(--serif);
     font-size: clamp(3.5rem, 8vw, 7rem);
@@ -141,14 +139,14 @@
     color: #f0ede6; margin-bottom: 1.5rem;
   }
   .hero-title em { font-style: italic; color: var(--gold-light); font-weight: 300; }
-
+ 
   .hero-sub {
     font-size: 0.95rem; font-weight: 300;
     color: rgba(160,158,153,0.9); line-height: 1.8;
     max-width: 480px; margin-bottom: 3rem;
   }
   .hero-actions { display: flex; align-items: center; gap: 2.5rem; }
-
+ 
   .btn-primary {
     font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: #fff; background: var(--gold-mid);
@@ -156,7 +154,7 @@
     transition: all 0.3s ease; display: inline-block;
   }
   .btn-primary:hover { background: var(--gold); }
-
+ 
   .btn-ghost {
     font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: #f0ede6; text-decoration: none;
@@ -166,7 +164,7 @@
   .btn-ghost:hover { color: var(--gold-light); }
   .btn-ghost::after { content: '→'; font-size: 1rem; transition: transform 0.3s; }
   .btn-ghost:hover::after { transform: translateX(6px); }
-
+ 
   .btn-ghost-dark {
     font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: var(--ink-mid); text-decoration: none;
@@ -176,7 +174,7 @@
   .btn-ghost-dark:hover { color: var(--gold); }
   .btn-ghost-dark::after { content: '→'; font-size: 1rem; transition: transform 0.3s; }
   .btn-ghost-dark:hover::after { transform: translateX(6px); }
-
+ 
   .hero-scroll {
     position: absolute; right: 4rem; bottom: 6rem; z-index: 2;
     writing-mode: vertical-rl;
@@ -192,7 +190,7 @@
     0%, 100% { transform: scaleY(0); transform-origin: top; }
     50%       { transform: scaleY(1); transform-origin: top; }
   }
-
+ 
   /* MARQUEE */
   .marquee-track {
     overflow: hidden;
@@ -207,17 +205,17 @@
   }
   .marquee-dot { color: var(--gold-mid); padding: 0 0.5rem; font-style: normal; }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
+ 
   /* SECTION COMMONS */
   section { padding: 8rem 4rem; }
-
+ 
   .section-tag {
     font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 1.25rem;
     display: flex; align-items: center; gap: 0.75rem;
   }
   .section-tag::before { content: '—'; color: var(--gold); }
-
+ 
   .section-title {
     font-family: var(--serif);
     font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -225,7 +223,7 @@
     color: var(--ink); margin-bottom: 1.5rem;
   }
   .section-title em { font-style: italic; color: var(--gold-mid); }
-
+ 
   /* ABOUT */
   .about { background: var(--off-white); display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
   .about-image { aspect-ratio: 3/4; overflow: hidden; position: relative; }
@@ -245,7 +243,7 @@
     color: var(--gold-light); background: rgba(26,25,23,0.5); padding: 0.3rem 0.75rem;
   }
   .about-text p { color: var(--ink-mid); line-height: 1.9; margin-bottom: 1.5rem; font-size: 0.95rem; }
-
+ 
   .stats-row { display: flex; gap: 3rem; margin-top: 3rem; }
   .stat-num {
     font-family: var(--serif); font-size: 3rem; font-weight: 300;
@@ -253,7 +251,7 @@
   }
   .stat-num span { color: var(--gold-mid); font-size: 1.5rem; }
   .stat-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-light); }
-
+ 
   /* SERVICES */
   .services { background: var(--white); }
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 5rem; }
@@ -285,7 +283,7 @@
     transition: gap 0.3s; position: relative; z-index: 1;
   }
   .service-link:hover { gap: 1rem; }
-
+ 
   /* PORTFOLIO */
   .portfolio { background: var(--off-white); padding: 8rem 0; }
   .portfolio-header { padding: 0 4rem; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
@@ -316,7 +314,7 @@
     color: var(--gold-light); border: 1px solid rgba(201,169,110,0.4);
     padding: 0.3rem 0.75rem; background: rgba(10,9,8,0.55);
   }
-
+ 
   /* TEAM */
   .profiles { background: var(--white); }
   .profiles-intro { max-width: 600px; margin-bottom: 5rem; }
@@ -340,7 +338,7 @@
   .profile-desc { font-size: 0.8rem; color: rgba(160,158,153,0.9); line-height: 1.6; }
   .profile-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
   .tag { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); border: 1px solid rgba(201,169,110,0.25); padding: 0.25rem 0.6rem; }
-
+ 
   /* TESTIMONIALS */
   .testimonials {
     background: var(--cream);
@@ -363,7 +361,7 @@
   .testimonial-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 3rem; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cream-dark); cursor: pointer; transition: background 0.3s; }
   .dot.active { background: var(--gold-mid); }
-
+ 
   /* PROCESS */
   .process { background: var(--off-white); }
   .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 5rem; border: 1px solid var(--cream-dark); }
@@ -372,7 +370,7 @@
   .step-num { font-family: var(--serif); font-size: 5rem; font-weight: 300; color: var(--cream-dark); line-height: 1; display: block; margin-bottom: 1.5rem; }
   .process-step h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; color: var(--ink); margin-bottom: 1rem; }
   .process-step p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.8; }
-
+ 
   /* CTA */
   .cta-section {
     background: var(--white); padding: 12rem 4rem;
@@ -406,7 +404,7 @@
     transition: all 0.3s ease; display: inline-block; position: relative; z-index: 1;
   }
   .btn-primary-ink:hover { background: var(--gold); }
-
+ 
   /* FOOTER — kept dark for contrast */
   footer {
     background: var(--ink);
@@ -433,19 +431,19 @@
   .footer-socials { display: flex; gap: 1.5rem; }
   .footer-socials a { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(160,158,153,0.4); text-decoration: none; transition: color 0.3s; }
   .footer-socials a:hover { color: var(--gold-light); }
-
+ 
   /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
   .animate-in { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
   .delay-1 { animation-delay: 0.1s; }
   .delay-2 { animation-delay: 0.25s; }
   .delay-3 { animation-delay: 0.4s; }
-
+ 
   .line-accent { width: 60px; height: 1px; background: var(--gold-mid); margin-bottom: 2rem; }
-
+ 
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-
+ 
   @media (max-width: 1024px) {
     nav, nav.scrolled { padding: 1.5rem 2rem; }
     section { padding: 6rem 2rem; }
@@ -463,12 +461,12 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
+ 
 <nav id="navbar">
-  <a href="#" class="logo">FR<span>A</span>ME</a>
+  <a href="#" class="logo">n<span>_g_</span>allery</a>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#services">Services</a></li>
@@ -477,7 +475,7 @@
   </ul>
   <a href="#contact" class="nav-cta">Start a Project</a>
 </nav>
-
+ 
 <!-- HERO — stays dark/cinematic -->
 <section class="hero">
   <div class="hero-video-bg"></div>
@@ -493,7 +491,7 @@
   </div>
   <div class="hero-scroll">Scroll</div>
 </section>
-
+ 
 <!-- MARQUEE — warm off-white -->
 <div class="marquee-track">
   <div class="marquee-inner">
@@ -514,7 +512,7 @@
     <span class="marquee-item">Color Grading <span class="marquee-dot">◆</span></span>
   </div>
 </div>
-
+ 
 <!-- ABOUT — warm off-white -->
 <section class="about" id="about">
   <div class="about-image reveal">
@@ -523,7 +521,7 @@
     <div class="about-image-label">Behind the frame</div>
   </div>
   <div class="about-text reveal">
-    <div class="section-tag">About Frame Studio</div>
+    <div class="section-tag">About n_g_allery</div>
     <h2 class="section-title">Every frame is a <em>decision</em>.</h2>
     <div class="line-accent"></div>
     <p>We are a collective of directors, cinematographers, and photographers obsessed with the gap between an ordinary image and an extraordinary one. That gap is where we live.</p>
@@ -545,7 +543,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- SERVICES — pure white -->
 <section class="services" id="services">
   <div class="services-header reveal">
@@ -576,7 +574,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- PORTFOLIO — warm off-white -->
 <section class="portfolio" id="work">
   <div class="portfolio-header reveal">
@@ -629,7 +627,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- TEAM — pure white -->
 <section class="profiles" id="team">
   <div class="profiles-intro reveal">
@@ -673,12 +671,12 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- TESTIMONIALS — warm cream -->
 <section class="testimonials">
   <div class="testimonials-inner">
     <span class="quote-mark">"</span>
-    <div class="testimonial-text" id="testimonialText">Frame didn't just shoot our product launch — they understood what the brand needed to feel like before the camera even rolled. The result exceeded everything we briefed.</div>
+    <div class="testimonial-text" id="testimonialText">n_g_allery didn't just shoot our product launch — they understood what the brand needed to feel like before the camera even rolled. The result exceeded everything we briefed.</div>
     <div class="testimonial-author" id="testimonialAuthor">FARAH YUSUF</div>
     <div class="testimonial-company" id="testimonialCompany">CMO, Bonia Group</div>
     <div class="testimonial-dots">
@@ -688,7 +686,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- PROCESS — warm off-white -->
 <section class="process" id="process">
   <div class="reveal">
@@ -718,22 +716,22 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- CTA — pure white -->
 <section class="cta-section" id="contact">
   <div class="reveal">
     <h2 class="cta-title">Ready to make<br><em>something</em> real?</h2>
     <p class="cta-sub">We take on a limited number of projects per quarter to ensure full attention.</p>
-    <a href="mailto:studio@framekl.co" class="cta-email">studio@framekl.co</a>
+    <a href="mailto:nicholas.ykl22@gmail.com" class="cta-email">nicholas.ykl22@gmail.com</a>
     <br>
     <a href="#contact" class="btn-primary-ink" style="display:inline-block;margin-top:0.5rem;">Start a Conversation</a>
   </div>
 </section>
-
+ 
 <!-- FOOTER — kept dark -->
 <footer>
   <div>
-    <span class="footer-logo">FR<span>A</span>ME</span>
+    <span class="footer-logo">n<span>_g_</span>allery</span>
     <p class="footer-tagline">Visual Production Studio<br>Kuala Lumpur, Malaysia</p>
   </div>
   <div class="footer-links">
@@ -758,7 +756,7 @@
   </div>
 </footer>
 <div class="footer-bottom">
-  <span class="footer-copy">© 2025 Frame Studio Sdn Bhd. All rights reserved.</span>
+  <span class="footer-copy">© 2025 n_g_allery. All rights reserved.</span>
   <div class="footer-socials">
     <a href="#">Instagram</a>
     <a href="#">Vimeo</a>
@@ -766,54 +764,47 @@
     <a href="#">LinkedIn</a>
   </div>
 </div>
-
+ 
 <script>
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
-
+ 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     cursor.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
   });
-
+ 
   function animateCursor() {
     rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
     cursorRing.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
     requestAnimationFrame(animateCursor);
   }
   animateCursor();
-
+ 
   document.querySelectorAll('a, button, .portfolio-item, .profile-card').forEach(el => {
     el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
   });
-
+ 
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 80); });
-
+ 
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   reveals.forEach(r => observer.observe(r));
-
+ 
   const testimonials = [
-    { text: "Frame didn't just shoot our product launch — they understood what the brand needed to feel like before the camera even rolled. The result exceeded everything we briefed.", author: "FARAH YUSUF", company: "CMO, Bonia Group" },
-    { text: "Working with Frame was the first time a production studio challenged our brief rather than just executing it. That made the final film far more powerful than we imagined.", author: "HASSAN IBRAHIM", company: "Marketing Director, Petronas" },
+    { text: "n_g_allery didn't just shoot our product launch — they understood what the brand needed to feel like before the camera even rolled. The result exceeded everything we briefed.", author: "FARAH YUSUF", company: "CMO, Bonia Group" },
+    { text: "Working with n_g_allery was the first time a production studio challenged our brief rather than just executing it. That made the final film far more powerful than we imagined.", author: "HASSAN IBRAHIM", company: "Marketing Director, Petronas" },
     { text: "The photography they produced for our seasonal campaign drove a 38% uplift in click-through. The images had a quality that made people stop scrolling.", author: "LINDA CHEW", company: "Brand Lead, Padini Holdings" }
   ];
-
+ 
   function showTestimonial(i) {
     const t = testimonials[i];
     document.getElementById('testimonialText').textContent = t.text;
     document.getElementById('testimonialAuthor').textContent = t.author;
     document.getElementById('testimonialCompany').textContent = t.company;
-    document.querySelectorAll('.dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
-  }
-
-  let currentT = 0;
-  setInterval(() => { currentT = (currentT + 1) % testimonials.length; showTestimonial(currentT); }, 6000);
-</script>
-</body>
-</html>
+    document.querySe
