@@ -519,6 +519,7 @@
   </div>
 </div>
 
+
 <script>
 // CURSOR
 var cursor = document.getElementById('cursor');
@@ -544,7 +545,7 @@ window.addEventListener('scroll', function() {
   navbar.classList.toggle('scrolled', window.scrollY > 80);
 });
 
-// REVEAL
+// REVEAL — threshold:0 fires on any pixel entering viewport
 var ro = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
     if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
@@ -581,4 +582,15 @@ function showTestimonial(i) {
   document.getElementById('testimonialText').textContent = t.text;
   document.getElementById('testimonialAuthor').textContent = t.author;
   document.getElementById('testimonialCompany').textContent = t.company;
-  document.querySelect
+  document.querySelectorAll('.dot').forEach(function(d, idx) {
+    d.classList.toggle('active', idx === i);
+  });
+}
+var currentT = 0;
+setInterval(function() {
+  currentT = (currentT + 1) % testimonials.length;
+  showTestimonial(currentT);
+}, 6000);
+</script>
+</body>
+</html>
