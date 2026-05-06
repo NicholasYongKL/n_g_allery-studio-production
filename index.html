@@ -138,3 +138,464 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+  .portfolio-cat {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.4rem;
+    font-family: var(--sans);
+  }
+
+  .portfolio-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: #f0ede6;
+    line-height: 1.3;
+  }
+
+  .portfolio-tag-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    border: 1px solid rgba(201,169,110,0.45);
+    padding: 0.25rem 0.7rem;
+    background: rgba(10,9,8,0.55);
+    backdrop-filter: blur(4px);
+    font-family: var(--sans);
+  }
+
+  /* Play button for video items */
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(201,169,110,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    backdrop-filter: blur(4px);
+  }
+  .portfolio-item:hover .play-btn { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+  .play-btn::after { content: ''; width: 0; height: 0; border-style: solid; border-width: 8px 0 8px 16px; border-color: transparent transparent transparent var(--gold-light); margin-left: 4px; }
+
+  /* VIDEO MODAL */
+  .video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9990; align-items: center; justify-content: center; }
+  .video-modal.open { display: flex; }
+  .video-modal-inner { position: relative; width: 90%; max-width: 960px; aspect-ratio: 16/9; }
+  .video-modal-inner iframe { width: 100%; height: 100%; border: none; }
+  .video-close { position: absolute; top: -3rem; right: 0; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); cursor: pointer; background: none; border: none; transition: color 0.2s; }
+  .video-close:hover { color: var(--gold-light); }
+
+  .testimonials { background: var(--cream); text-align: center; padding: 8rem 4rem; border-top: 1px solid var(--cream-dark); border-bottom: 1px solid var(--cream-dark); }
+  .testimonials-inner { max-width: 800px; margin: 0 auto; }
+  .quote-mark { font-family: var(--serif); font-size: 8rem; font-weight: 300; color: rgba(184,145,74,0.18); line-height: 0.5; display: block; margin-bottom: 2rem; }
+  .testimonial-text { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 300; font-style: italic; line-height: 1.5; color: var(--ink); margin-bottom: 2.5rem; }
+  .testimonial-author { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .testimonial-company { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-top: 0.25rem; }
+  .testimonial-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 3rem; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cream-dark); cursor: pointer; transition: background 0.3s; }
+  .dot.active { background: var(--gold-mid); }
+
+  .process { background: var(--off-white); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 5rem; border: 1px solid var(--cream-dark); }
+  .process-step { padding: 3rem 2.5rem; border-right: 1px solid var(--cream-dark); }
+  .process-step:last-child { border-right: none; }
+  .step-num { font-family: var(--serif); font-size: 5rem; font-weight: 300; color: var(--cream-dark); line-height: 1; display: block; margin-bottom: 1.5rem; }
+  .process-step h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; color: var(--ink); margin-bottom: 1rem; }
+  .process-step p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.8; }
+
+  .cta-section { background: var(--white); padding: 12rem 4rem; text-align: center; position: relative; overflow: hidden; border-top: 1px solid var(--cream-dark); }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(184,145,74,0.05) 0%, transparent 70%); }
+  .cta-title { font-family: var(--serif); font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 300; line-height: 1.1; color: var(--ink); margin-bottom: 2rem; position: relative; z-index: 1; }
+  .cta-title em { font-style: italic; color: var(--gold-mid); }
+  .cta-sub { font-size: 0.9rem; color: var(--ink-light); margin-bottom: 4rem; position: relative; z-index: 1; }
+  .cta-email { font-family: var(--serif); font-size: 1.3rem; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(154,120,50,0.3); padding-bottom: 0.25rem; transition: border-color 0.3s; position: relative; z-index: 1; display: inline-block; margin-bottom: 4rem; }
+  .cta-email:hover { border-color: var(--gold); }
+  .btn-primary-ink { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; background: var(--ink); text-decoration: none; padding: 1rem 2.5rem; transition: all 0.3s; display: inline-block; position: relative; z-index: 1; }
+  .btn-primary-ink:hover { background: var(--gold); }
+
+  footer { background: var(--ink); padding: 4rem; border-top: 3px solid var(--gold-mid); display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: start; gap: 4rem; }
+  .footer-logo { font-family: var(--serif); font-size: 2rem; font-weight: 300; letter-spacing: 0.2em; color: #f0ede6; display: block; margin-bottom: 1rem; }
+  .footer-logo span { color: var(--gold-light); }
+  .footer-tagline { font-size: 0.8rem; color: rgba(160,158,153,0.6); }
+  .footer-links h5 { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.5rem; }
+  .footer-links ul { list-style: none; }
+  .footer-links li { margin-bottom: 0.75rem; }
+  .footer-links a { font-size: 0.85rem; color: rgba(160,158,153,0.6); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: #f0ede6; }
+  .footer-bottom { padding: 2rem 4rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; background: #141312; }
+  .footer-copy { font-size: 0.75rem; color: rgba(160,158,153,0.4); }
+  .footer-socials { display: flex; gap: 1.5rem; }
+  .footer-socials a { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(160,158,153,0.4); text-decoration: none; transition: color 0.3s; }
+  .footer-socials a:hover { color: var(--gold-light); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.25s; } .delay-3 { animation-delay: 0.4s; }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 1024px) {
+    nav, nav.scrolled { padding: 1.5rem 2rem; }
+    section { padding: 6rem 2rem; }
+    .hero { padding: 0 2rem 5rem; }
+    .about { grid-template-columns: 1fr; gap: 4rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; padding: 0 1rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    footer { grid-template-columns: 1fr; }
+    .footer-bottom { padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; }
+  }
+  @media (max-width: 600px) {
+    .portfolio-grid { grid-template-columns: 1fr; padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-inner">
+    <button class="video-close" onclick="closeVideo()">&#x2715; &nbsp; Close</button>
+    <iframe id="videoFrame" src="" allowfullscreen allow="autoplay"></iframe>
+  </div>
+</div>
+
+<nav id="navbar">
+  <a href="#" class="logo">n<span>G</span>allery</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Start a Project</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="https://i.imgur.com/FF3f945.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag animate-in">Visual Production Studio — Est. 2018</div>
+    <h1 class="hero-title animate-in delay-1">A Video Is Useless<br>If <em>No One</em><br>Sees It.</h1>
+    <p class="hero-sub animate-in delay-2">We make content that actually brings in customers — transparent pricing, no agency middlemen, delivered ready to run.</p>
+    <div class="hero-actions animate-in delay-3">
+      <a href="#work" class="btn-primary">View Our Work</a>
+      <a href="#services" class="btn-ghost">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<div class="marquee-track">
+  <div class="marquee-inner">
+    <span class="marquee-item">Cinematic Production <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Editorial Photography <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Brand Films <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Commercial Campaigns <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Documentary Projects <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Motion Design <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Post-Production <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Color Grading <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Cinematic Production <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Editorial Photography <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Brand Films <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Commercial Campaigns <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Motion Design <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Post-Production <span class="marquee-dot">&#9670;</span></span>
+    <span class="marquee-item">Color Grading <span class="marquee-dot">&#9670;</span></span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-image">
+    <img src="https://i.imgur.com/fceS6Tf.png" alt="Nicholas Yong">
+    <div class="about-image-overlay"></div>
+    <div class="about-image-label">Behind the frame</div>
+  </div>
+  <div class="about-text">
+    <div class="section-tag">About nGallery</div>
+    <h2 class="section-title">Every frame is a <em>decision</em>.</h2>
+    <div class="line-accent"></div>
+    <p>I am a freelance visual creative working across direction, cinematography, and photography, collaborating with trusted specialists when projects demand it. I've partnered with multinational companies and agencies to produce high-quality visual work that strengthens brand storytelling. Our studio runs lean, moves fast, and never compromises on the one thing that matters: how the work makes people feel.</p>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Our <em>craft</em></h2>
+    </div>
+    <a href="#contact" class="btn-ghost-dark">All Services</a>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <h3>Film &amp;<br>Videography</h3>
+      <p>Cinematic brand films, corporate documentaries, and commercial campaigns that hold attention and shift perception.</p>
+      <a href="#" class="service-link">Explore &#x2192;</a>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <h3>Photography &amp;<br>Editorial</h3>
+      <p>Product, portrait, and editorial photography with intentional composition, lighting design, and art direction built in.</p>
+      <a href="#" class="service-link">Explore &#x2192;</a>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <h3>Post-Production &amp;<br>Color</h3>
+      <p>Full-service post: color grading, sound design, motion graphics, and edit — delivered to broadcast and streaming standards.</p>
+      <a href="#" class="service-link">Explore &#x2192;</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO — uniform 2x2 grid -->
+<section class="portfolio" id="work">
+  <div class="portfolio-header">
+    <div>
+      <div class="section-tag">Selected Work</div>
+      <h2 class="section-title">The <em>portfolio</em></h2>
+    </div>
+    <a href="#" class="btn-ghost-dark">View All Work</a>
+  </div>
+  <div class="portfolio-grid">
+
+    <!-- Item 1: Video — Hokkaido University (your real Imgur photo) -->
+    <div class="portfolio-item" onclick="openVideo('dwJFi9gfof8')">
+      <img src="https://i.imgur.com/zaamMW2.jpeg" alt="Hokkaido University 150th Anniversary">
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">Brand Film</div>
+        <div class="portfolio-title">Hokkaido University<br>150th Anniversary</div>
+      </div>
+      <div class="portfolio-tag-badge">Film</div>
+      <div class="play-btn"></div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="portfolio-item" onclick="openVideo('qHHkfK6KcKU')">
+      <img src="https://i.imgur.com/YNyZEsd.jpeg" alt="Mapei Roof Refurbishment Solution">
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">Commercial</div>
+        <div class="portfolio-title">Mapei Roof Refurbishment Solution; iOi Mall Puchong Roof Waterproofing System with Mapethene TA</div>
+      </div>
+      <div class="portfolio-tag-badge">Film</div>
+      <div class="play-btn"></div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="portfolio-item" onclick="openVideo('Ilv7c68dvzE')">
+      <img src="https://i.imgur.com/Filt7pg.png" alt="Mapei Coating Technology Petronas Sepang">
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">Commercial</div>
+        <div class="portfolio-title">Mapei Coating Technology for the Petronas Sepang International Circuit</div>
+      </div>
+      <div class="portfolio-tag-badge">Film</div>
+      <div class="play-btn"></div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="portfolio-item" onclick="openVideo('t5qJMMcpkfc')">
+      <img src="https://i.imgur.com/8NEbIgt.jpeg" alt="Mapei Exhibition Archidex">
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">Commercial</div>
+        <div class="portfolio-title">Mapei Exhibition @ Archidex</div>
+      </div>
+      <div class="portfolio-tag-badge">Film</div>
+      <div class="play-btn"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <span class="quote-mark">"</span>
+    <div class="testimonial-text" id="testimonialText">nGallery didn't just shoot our product launch — they understood what the brand needed to feel like before the camera even rolled. The result exceeded everything we briefed.</div>
+    <div class="testimonial-author" id="testimonialAuthor">FARAH YUSUF</div>
+    <div class="testimonial-company" id="testimonialCompany">CMO, Bonia Group</div>
+    <div class="testimonial-dots">
+      <div class="dot active" onclick="showTestimonial(0)"></div>
+      <div class="dot" onclick="showTestimonial(1)"></div>
+      <div class="dot" onclick="showTestimonial(2)"></div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="reveal">
+    <div class="section-tag">How We Work</div>
+    <h2 class="section-title">The <em>process</em></h2>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h4>Discovery &amp; Strategy</h4>
+      <p>We immerse ourselves in your brand, audience, and competitive context before a single frame is planned. Strategy is not a step — it's the foundation.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h4>Creative Development</h4>
+      <p>Moodboards, shot lists, location scouting, and talent casting. You see and approve the visual language before production begins.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h4>Production</h4>
+      <p>We execute with precision. Every call sheet, every lighting setup, every lens choice is intentional. No improvised thinking on the day.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h4>Post &amp; Delivery</h4>
+      <p>Colour grade, edit, sound design, and delivery in your required formats. We don't hand off raw files and disappear — we deliver complete work.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="reveal">
+    <h2 class="cta-title">Ready to make<br><em>something</em> real?</h2>
+    <p class="cta-sub">We take on a limited number of projects per quarter to ensure full attention.</p>
+    <a href="mailto:nicholas.ykl22@gmail.com" class="cta-email">nicholas.ykl22@gmail.com</a>
+    <br>
+    <a href="#contact" class="btn-primary-ink" style="display:inline-block;margin-top:0.5rem;">Start a Conversation</a>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <span class="footer-logo">n<span>G</span>allery</span>
+    <p class="footer-tagline">Visual Production Studio<br>Kuala Lumpur, Malaysia</p>
+  </div>
+  <div class="footer-links">
+    <h5>Navigation</h5>
+    <ul>
+      <li><a href="#work">Selected Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-links">
+    <h5>Services</h5>
+    <ul>
+      <li><a href="#">Film &amp; Videography</a></li>
+      <li><a href="#">Editorial Photography</a></li>
+      <li><a href="#">Commercial Campaigns</a></li>
+      <li><a href="#">Post-Production</a></li>
+      <li><a href="#">Color Grading</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-copy">&#169; 2025 nGallery. All rights reserved.</span>
+  <div class="footer-socials">
+    <a href="#">Instagram</a>
+    <a href="#">Vimeo</a>
+    <a href="#">Behance</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</div>
+
+
+<script>
+// CURSOR
+var cursor = document.getElementById('cursor');
+var ring = document.getElementById('cursorRing');
+var mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', function(e) {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.transform = 'translate(' + (mx-4) + 'px,' + (my-4) + 'px)';
+});
+(function tick() {
+  rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
+  ring.style.transform = 'translate(' + (rx-18) + 'px,' + (ry-18) + 'px)';
+  requestAnimationFrame(tick);
+})();
+document.querySelectorAll('a,button,.portfolio-item').forEach(function(el) {
+  el.addEventListener('mouseenter', function() { ring.classList.add('hover'); });
+  el.addEventListener('mouseleave', function() { ring.classList.remove('hover'); });
+});
+
+// NAV SCROLL
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+  navbar.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// REVEAL — threshold:0 fires on any pixel entering viewport
+var ro = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0 });
+document.querySelectorAll('.reveal').forEach(function(r) { ro.observe(r); });
+
+// VIDEO MODAL
+function openVideo(id) {
+  document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeVideo() {
+  document.getElementById('videoFrame').src = '';
+  document.getElementById('videoModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('videoModal').addEventListener('click', function(e) {
+  if (e.target === this) closeVideo();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeVideo();
+});
+
+// TESTIMONIALS
+var testimonials = [
+  { text: "nGallery didn't just shoot our product launch — they understood what the brand needed to feel like before the camera even rolled. The result exceeded everything we briefed.", author: "FARAH YUSUF", company: "CMO, Bonia Group" },
+  { text: "Working with nGallery was the first time a production studio challenged our brief rather than just executing it. That made the final film far more powerful than we imagined.", author: "HASSAN IBRAHIM", company: "Marketing Director, Petronas" },
+  { text: "The photography they produced for our seasonal campaign drove a 38% uplift in click-through. The images had a quality that made people stop scrolling.", author: "LINDA CHEW", company: "Brand Lead, Padini Holdings" }
+];
+function showTestimonial(i) {
+  var t = testimonials[i];
+  document.getElementById('testimonialText').textContent = t.text;
+  document.getElementById('testimonialAuthor').textContent = t.author;
+  document.getElementById('testimonialCompany').textContent = t.company;
+  document.querySelectorAll('.dot').forEach(function(d, idx) {
+    d.classList.toggle('active', idx === i);
+  });
+}
+var currentT = 0;
+setInterval(function() {
+  currentT = (currentT + 1) % testimonials.length;
+  showTestimonial(currentT);
+}, 6000);
+</script>
+</body>
+</html>
