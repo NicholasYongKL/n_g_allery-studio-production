@@ -73,7 +73,7 @@
   .section-title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--ink); margin-bottom: 1.5rem; }
   .section-title em { font-style: italic; color: var(--gold-mid); }
 
-  .about { background: var(--off-white); display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
+  .about { background: var(--off-white); }
   .about-image { aspect-ratio: 3/4; overflow: hidden; position: relative; }
   .about-image img { width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: brightness(0.9) contrast(1.05) saturate(0.85); transition: transform 0.8s; }
   .about-image:hover img { transform: scale(1.04); }
@@ -255,6 +255,25 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* ABOUT — stacked layout */
+  .about-header {
+    padding: 6rem 4rem 3rem;
+  }
+  .about-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    padding: 0 4rem 8rem;
+    align-items: start;
+  }
+  .about-image { aspect-ratio: 3/4; overflow: hidden; position: relative; }
+  .about-text-col p { color: var(--ink-mid); line-height: 1.9; margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+  @media (max-width: 1024px) {
+    .about-header { padding: 4rem 2rem 2rem; }
+    .about-body { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem 6rem; }
+  }
+
   /* CLIENT LOGO STRIP */
   .clients-strip {
     background: var(--cream);
@@ -304,7 +323,7 @@
     nav, nav.scrolled { padding: 1.5rem 2rem; }
     section { padding: 6rem 2rem; }
     .hero { padding: 0 2rem 5rem; }
-    .about { grid-template-columns: 1fr; gap: 4rem; }
+
     .services-grid { grid-template-columns: 1fr; }
     .portfolio-grid { grid-template-columns: 1fr 1fr; padding: 0 1rem; }
     .process-steps { grid-template-columns: 1fr 1fr; }
@@ -470,19 +489,25 @@
 </section>
 
 <section class="about" id="about">
-  <div class="about-image">
-    <img src="https://i.imgur.com/fceS6Tf.png" alt="Nicholas Yong">
-    <div class="about-image-overlay"></div>
-    <div class="about-image-label">Behind the frame</div>
-  </div>
-  <div class="about-text">
+  <!-- Title block — sits above the photo -->
+  <div class="about-header">
     <div class="section-tag">About nGallery</div>
     <h2 class="section-title">Every frame is a <em>decision</em>.</h2>
     <div class="line-accent"></div>
-    <p>And behind every decision is one person — not a rotating cast of account managers, junior editors, or interns you never met during the pitch.</p>
-    <p>My name is Nicholas. I'm a videographer and photographer based in Kuala Lumpur, and I work directly with business owners — from the first brief to the final file delivered. No handoffs. No black boxes. No invoice surprises halfway through.</p>
-    <p>I've produced commercial work for multinational brands and agencies across Malaysia. But I built nGallery for a different kind of client: the business owner who needs content that actually works — that drives customers through the door, not just likes on a feed — and who deserves to understand exactly what they're paying for, every step of the way.</p>
-    <p>You won't get a cinematic masterpiece that obscures your product. You'll get visuals built around your business goal, delivered ready to use, in a language you don't need a production degree to understand.</p>
+  </div>
+  <!-- Photo + text side by side below the title -->
+  <div class="about-body">
+    <div class="about-image">
+      <img src="https://i.imgur.com/fceS6Tf.png" alt="Nicholas Yong">
+      <div class="about-image-overlay"></div>
+      <div class="about-image-label">Behind the frame</div>
+    </div>
+    <div class="about-text-col">
+      <p>And behind every decision is one person — not a rotating cast of account managers, junior editors, or interns you never met during the pitch.</p>
+      <p>My name is Nicholas. I'm a videographer and photographer based in Kuala Lumpur, and I work directly with business owners — from the first brief to the final file delivered. No handoffs. No black boxes. No invoice surprises halfway through.</p>
+      <p>I've produced commercial work for multinational brands and agencies across Malaysia. But I built nGallery for a different kind of client: the business owner who needs content that actually works — that drives customers through the door, not just likes on a feed — and who deserves to understand exactly what they're paying for, every step of the way.</p>
+      <p>You won't get a cinematic masterpiece that obscures your product. You'll get visuals built around your business goal, delivered ready to use, in a language you don't need a production degree to understand.</p>
+    </div>
   </div>
 </section>
 
