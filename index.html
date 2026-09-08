@@ -255,6 +255,47 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* CLIENT LOGO STRIP */
+  .clients-strip {
+    background: var(--cream);
+    border-top: 1px solid var(--cream-dark);
+    border-bottom: 1px solid var(--cream-dark);
+    padding: 3rem 4rem;
+    text-align: center;
+  }
+  .clients-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 2rem;
+  }
+  .clients-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+  .client-logo {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+  }
+  .client-logo img {
+    height: 100%;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.55);
+    transition: filter 0.3s ease;
+  }
+  .client-logo img:hover {
+    filter: grayscale(0%) opacity(1);
+  }
+
   @media (max-width: 1024px) {
     nav, nav.scrolled { padding: 1.5rem 2rem; }
     section { padding: 6rem 2rem; }
@@ -440,6 +481,18 @@
     <p>You won't get a cinematic masterpiece that obscures your product. You'll get visuals built around your business goal, delivered ready to use, in a language you don't need a production degree to understand.</p>
   </div>
 </section>
+
+<!-- CLIENT LOGO STRIP -->
+<div class="clients-strip">
+  <div class="clients-label">Trusted by</div>
+  <div class="clients-row">
+    <div class="client-logo"><img src="https://i.imgur.com/5b8Ztpi.png" alt="NSK Trade City"></div>
+    <div class="client-logo"><img src="https://i.imgur.com/itGBj2p.png" alt="Mapei"></div>
+    <div class="client-logo"><img src="https://i.imgur.com/rhzpsbI.png" alt="Hokkaido University"></div>
+    <div class="client-logo"><img src="https://i.imgur.com/8nMVaGR.png" alt="IOI Mall"></div>
+    <div class="client-logo"><img src="https://i.imgur.com/9WS64AF.png" alt="Petronas"></div>
+  </div>
+</div>
 
 <!-- PORTFOLIO — uniform 2x2 grid -->
 <section class="services" id="services">
