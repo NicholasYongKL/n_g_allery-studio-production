@@ -260,8 +260,9 @@
     background: var(--cream);
     border-top: 1px solid var(--cream-dark);
     border-bottom: 1px solid var(--cream-dark);
-    padding: 3rem 4rem;
+    padding: 3rem 0;
     text-align: center;
+    overflow: hidden;
   }
   .clients-label {
     font-size: 0.65rem;
@@ -270,31 +271,34 @@
     color: var(--ink-light);
     margin-bottom: 2rem;
   }
-  .clients-row {
+  .clients-track {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
+    width: max-content;
+    animation: logoScroll 20s linear infinite;
+  }
+  .clients-track:hover { animation-play-state: paused; }
+  @keyframes logoScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
   .client-logo {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 48px;
+    height: 96px;
+    padding: 0 5rem;
   }
   .client-logo img {
     height: 100%;
     width: auto;
-    max-width: 120px;
+    max-width: 240px;
     object-fit: contain;
     filter: grayscale(100%) opacity(0.55);
     transition: filter 0.3s ease;
   }
-  .client-logo img:hover {
-    filter: grayscale(0%) opacity(1);
-  }
+  .client-logo img:hover { filter: grayscale(0%) opacity(1); }
 
   @media (max-width: 1024px) {
     nav, nav.scrolled { padding: 1.5rem 2rem; }
@@ -485,7 +489,12 @@
 <!-- CLIENT LOGO STRIP -->
 <div class="clients-strip">
   <div class="clients-label">Trusted by</div>
-  <div class="clients-row">
+  <div class="clients-track">
+    <div class="client-logo"><img src="https://i.imgur.com/5b8Ztpi.png" alt="NSK Trade City"></div>
+    <div class="client-logo"><img src="https://i.imgur.com/itGBj2p.png" alt="Mapei"></div>
+    <div class="client-logo"><img src="https://i.imgur.com/rhzpsbI.png" alt="Hokkaido University"></div>
+    <div class="client-logo"><img src="https://i.imgur.com/8nMVaGR.png" alt="IOI Mall"></div>
+    <div class="client-logo"><img src="https://i.imgur.com/9WS64AF.png" alt="Petronas"></div>
     <div class="client-logo"><img src="https://i.imgur.com/5b8Ztpi.png" alt="NSK Trade City"></div>
     <div class="client-logo"><img src="https://i.imgur.com/itGBj2p.png" alt="Mapei"></div>
     <div class="client-logo"><img src="https://i.imgur.com/rhzpsbI.png" alt="Hokkaido University"></div>
@@ -521,20 +530,6 @@
       <h3>Post-Production &amp;<br>Color</h3>
       <p>Full-service post: color grading, sound design, motion graphics, and edit — delivered to broadcast and streaming standards.</p>
       <a href="#" class="service-link">Explore &#x2192;</a>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials">
-  <div class="testimonials-inner">
-    <span class="quote-mark">"</span>
-    <div class="testimonial-text" id="testimonialText">nGallery didn't just shoot our product launch — they understood what the brand needed to feel like before the camera even rolled. The result exceeded everything we briefed.</div>
-    <div class="testimonial-author" id="testimonialAuthor">FARAH YUSUF</div>
-    <div class="testimonial-company" id="testimonialCompany">CMO, Bonia Group</div>
-    <div class="testimonial-dots">
-      <div class="dot active" onclick="showTestimonial(0)"></div>
-      <div class="dot" onclick="showTestimonial(1)"></div>
-      <div class="dot" onclick="showTestimonial(2)"></div>
     </div>
   </div>
 </section>
