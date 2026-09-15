@@ -261,16 +261,16 @@
     font-size: 0.8rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: #fff;
     text-decoration: none;
-    border: 1px solid var(--cream-dark);
+    border: 1px solid var(--ink);
     padding: 1rem 2.5rem;
     transition: all 0.3s ease;
-    background: var(--white);
+    background: var(--ink);
   }
   .btn-view-more:hover {
-    background: var(--ink);
-    color: var(--gold-light);
+    background: var(--white);
+    color: var(--ink);
     border-color: var(--ink);
   }
 
@@ -301,6 +301,7 @@
     padding: 3rem 0;
     text-align: center;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch;
   }
   .clients-label {
     font-size: 0.65rem;
@@ -707,6 +708,52 @@ document.getElementById('videoModal').addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeVideo();
 });
+
+
+// LOGO STRIP DRAG
+(function() {
+  var track = document.querySelector('.clients-track');
+  if (!track) return;
+  var strip = track.parentElement;
+  var isDragging = false;
+  var startX = 0;
+  var scrollLeft = 0;
+
+  function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+
+  track.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    startX = getX(e) - strip.scrollLeft;
+    track.classList.add('dragging');
+  });
+  track.addEventListener('touchstart', function(e) {
+    isDragging = true;
+    startX = getX(e) - (strip.scrollLeft || 0);
+    track.classList.add('dragging');
+  }, { passive: true });
+
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    var x = getX(e) - startX;
+    strip.scrollLeft = -x;
+  });
+  document.addEventListener('touchmove', function(e) {
+    if (!isDragging) return;
+    var x = getX(e) - startX;
+    strip.scrollLeft = -x;
+  }, { passive: true });
+
+  document.addEventListener('mouseup', function() {
+    if (!isDragging) return;
+    isDragging = false;
+    track.classList.remove('dragging');
+  });
+  document.addEventListener('touchend', function() {
+    isDragging = false;
+    track.classList.remove('dragging');
+  });
+})();
 
 // TESTIMONIALS
 var testimonials = [
