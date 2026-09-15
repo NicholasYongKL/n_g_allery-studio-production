@@ -255,6 +255,25 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* VIEW MORE BUTTON */
+  .btn-view-more {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid var(--cream-dark);
+    padding: 1rem 2.5rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+  }
+  .btn-view-more:hover {
+    background: var(--ink);
+    color: var(--gold-light);
+    border-color: var(--ink);
+  }
+
   /* ABOUT — stacked layout */
   .about-header {
     padding: 6rem 4rem 3rem;
@@ -487,6 +506,13 @@
     </div>
   </div>
 </section>
+
+<!-- VIEW MORE BUTTON -->
+<div style="background: var(--off-white); text-align: center; padding: 3rem 4rem 5rem;">
+  <a href="https://drive.google.com/drive/folders/1LM18f3RWXRYtmYRh9vriL0dHoV2BZIdr?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-view-more">
+    View More Past Works &nbsp;&#x2197;
+  </a>
+</div>
 
 <section class="about" id="about">
   <!-- Title block — sits above the photo -->
