@@ -310,34 +310,6 @@
     color: var(--ink-light);
     margin-bottom: 2rem;
   }
-  .clients-track {
-    display: flex;
-    align-items: center;
-    width: max-content;
-    animation: logoScroll 20s linear infinite;
-  }
-  .clients-track:hover { animation-play-state: paused; }
-  @keyframes logoScroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .client-logo {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 96px;
-    padding: 0 5rem;
-  }
-  .client-logo img {
-    height: 100%;
-    width: auto;
-    max-width: 240px;
-    object-fit: contain;
-    filter: grayscale(100%) opacity(0.55);
-    transition: filter 0.3s ease;
-  }
-  .client-logo img:hover { filter: grayscale(0%) opacity(1); }
 
   @media (max-width: 1024px) {
     nav, nav.scrolled { padding: 1.5rem 2rem; }
@@ -541,12 +513,7 @@
 <!-- CLIENT LOGO STRIP -->
 <div class="clients-strip">
   <div class="clients-label">Trusted by</div>
-  <div class="clients-track">
-    <div class="client-logo"><img src="https://i.imgur.com/5b8Ztpi.png" alt="NSK Trade City"></div>
-    <div class="client-logo"><img src="https://i.imgur.com/itGBj2p.png" alt="Mapei"></div>
-    <div class="client-logo"><img src="https://i.imgur.com/rhzpsbI.png" alt="Hokkaido University"></div>
-    <div class="client-logo"><img src="https://i.imgur.com/8nMVaGR.png" alt="IOI Mall"></div>
-    <div class="client-logo"><img src="https://i.imgur.com/9WS64AF.png" alt="Petronas"></div>
+  <div class="clients-grid">
     <div class="client-logo"><img src="https://i.imgur.com/5b8Ztpi.png" alt="NSK Trade City"></div>
     <div class="client-logo"><img src="https://i.imgur.com/itGBj2p.png" alt="Mapei"></div>
     <div class="client-logo"><img src="https://i.imgur.com/rhzpsbI.png" alt="Hokkaido University"></div>
@@ -710,50 +677,6 @@ document.addEventListener('keydown', function(e) {
 });
 
 
-// LOGO STRIP DRAG
-(function() {
-  var track = document.querySelector('.clients-track');
-  if (!track) return;
-  var strip = track.parentElement;
-  var isDragging = false;
-  var startX = 0;
-  var scrollLeft = 0;
-
-  function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
-
-  track.addEventListener('mousedown', function(e) {
-    isDragging = true;
-    startX = getX(e) - strip.scrollLeft;
-    track.classList.add('dragging');
-  });
-  track.addEventListener('touchstart', function(e) {
-    isDragging = true;
-    startX = getX(e) - (strip.scrollLeft || 0);
-    track.classList.add('dragging');
-  }, { passive: true });
-
-  document.addEventListener('mousemove', function(e) {
-    if (!isDragging) return;
-    e.preventDefault();
-    var x = getX(e) - startX;
-    strip.scrollLeft = -x;
-  });
-  document.addEventListener('touchmove', function(e) {
-    if (!isDragging) return;
-    var x = getX(e) - startX;
-    strip.scrollLeft = -x;
-  }, { passive: true });
-
-  document.addEventListener('mouseup', function() {
-    if (!isDragging) return;
-    isDragging = false;
-    track.classList.remove('dragging');
-  });
-  document.addEventListener('touchend', function() {
-    isDragging = false;
-    track.classList.remove('dragging');
-  });
-})();
 
 // TESTIMONIALS
 var testimonials = [
